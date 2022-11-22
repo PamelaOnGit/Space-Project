@@ -59,15 +59,20 @@ if (!launchData) {
 
   return (
   <div className="section-launch-info">
-    <p>Name: {launchData.name}</p>
+    <div className="launch-info-card">
+      <div className="launch-info-text">
+      <div className="launch-info-name">name: {launchData.name}</div> 
     <p>Launch Service Provider: {launchData.launch_service_provider.name}</p>
    <p>Launch Pad: {launchData.pad.name}</p>
    <p>Last updated: {launchData.last_updated}</p>
    <p>Status: {launchData.status.name}</p>
    <p>Mission: {launchData.mission.description}</p>
-
-   <p></p>
+   </div>
    <img src={launchData.image} alt={launchData.name} />
+    </div>
+
+
+
 
 
     </div>

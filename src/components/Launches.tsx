@@ -73,31 +73,26 @@ function Launches() {
 
   return (
   <section className="section-launches">
-
-<p>{launchData.results[0].pad.latitude}</p>
-<p>{launchData.results[0].pad.longitude}</p>
-
 <MapContainer center={[0,0]} zoom={2} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
 <>
-
 {launchData.results.map(item => {
   return <Marker key={item.id} position={[Number(item.pad.latitude), Number(item.pad.longitude)]} icon={ rocket_icon }>
 
     <Popup>
 <Link to={`/launchinfo/${item.id}`}>
-<p>{item.name}</p>
-<p>{item.pad.location.country_code}</p>
+<p className="launch-popup">{item.name}</p>
+<p className="launch-popup">{item.pad.location.country_code}</p>
+<p>click here to learn more</p>
 </Link>
     </Popup>
 </Marker>
 
 })}
 </>
-
 </MapContainer>
   </section>
   )

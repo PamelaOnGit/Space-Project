@@ -4,13 +4,6 @@ import L from "leaflet"
 
 const tracker_url_and_key = "http://api.open-notify.org/iss-now.json"
 
-// interface IMarker { 
-//   iconUrl: string, 
-//   shadowUrl: string, 
-//   iconSize: Array<number>
-//   shadowSize: Array<number>
-// }
-
 const issMarker = L.icon({
   iconUrl: "src/components/resources/iss_logo.png", 
   shadowUrl: "src/components/resources/iss_logo.png",
@@ -67,7 +60,7 @@ if (!trackerData) {
 }
 
 
-  return <div>
+  return <div  className="section-tracker">
 <MapContainer center={[Number(trackerData?.iss_position.latitude), Number(trackerData?.iss_position.longitude)]} zoom={4} scrollWheelZoom={false}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -75,9 +68,6 @@ if (!trackerData) {
   />
   <Marker position={[Number(trackerData?.iss_position.latitude), Number(trackerData?.iss_position.longitude)]}
   icon={ issMarker }>
-    {/* <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
-    </Popup> */}
   </Marker>
 </MapContainer>
   </div>

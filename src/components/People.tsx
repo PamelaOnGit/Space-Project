@@ -33,21 +33,21 @@ function People() {
     fetchAstronauts()
   }, [])
 
-React.useEffect(() => { 
-  async function fetchFullData() { 
-    const resp = await fetch(full_data_api)
-    const data = await resp.json()
-    setFullData(data)
-    console.log(data.count)
+  React.useEffect(() => {
+    async function fetchFullData() {
+      const resp = await fetch(full_data_api)
+      const data = await resp.json()
+      setFullData(data)
+      console.log(data.count)
+    }
+    fetchFullData()
+  }, [])
+
+  const change = (event: any) => {
+    console.log(event.target.value)
+    setSearch(event.target.value)
+
   }
-  fetchFullData()
-}, [])
-
-const change = (event: any) => { 
-  console.log(event.target.value)
-  setSearch(event.target.value) 
-
-}
 
   if (!astronautData) {
     return <div>loading...</div>
@@ -57,26 +57,24 @@ const change = (event: any) => {
 
   return (
     <section className="section-people">
-      <h1 className="title">There are {astronautData.number} humans in space right now.</h1>
-      <h2>Select one to find out more or search an astronaut by name. </h2>
-      <div className="search-name">
-          <input className="search-input" onChange={change} value={search} placeholder="eg. Armstrong"/>
-            <Link to={`/profile/${search}`}>
-              <button className="search-button">search</button>
-            </Link>
-</div>
-
-      <div className="gallery-container">{astronautData.people.map(person => {
-        return <div key={person.name} className="astronaut-card">
+      <div className="people-title">
+        <h1>There are {astronautData.number} astronauts in space right now.</h1>
+        <h2>Select one to find out more or search an astronaut by name. </h2>
+        <div className="search-name">
+          <input className="search-input" onChange={change} value={search} placeholder="eg. Armstrong" />
+          <Link to={`/profile/${search}`}>
+            <button className="search-button">search</button>
+          </Link>
+        </div>
+      </div>
+      <div className="astronaut-list-container">{astronautData.people.map(person => {
+        return <div key={person.name} className="astronaut-list-item">
           <Link to={`/profile/${person.name.split(' ')[1]}`}>
             <div className="astronaut-name">
-            <p>{person.name}</p>
-            </div>
-            <div>
-              <img className="astronaut-cartoon" src="src/components/resources/astronaut_image.png" alt="" />
+              <p>name: <strong>{person.name}</strong></p>
             </div>
             <div className="craft-name">
-              <p>craft: {person.craft}</p>
+              <p>craft: <strong>{person.craft}</strong></p>
             </div>
           </Link>
         </div>

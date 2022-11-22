@@ -15,13 +15,14 @@ interface IAstronaut {
 }
 
 interface IAstronautObj {
+  count: number,
   results: Array<IAstronaut>
 }
 
 function Profile() {
   const { astronautName } = useParams()
   const [astronautData, setAstronautData] = React.useState<IAstronautObj | null>(null)
-  console.log(astronautData?.results[0].name)
+  console.log(astronautData?.count)
 
   React.useEffect(() => {
     async function fetchAstronautData() {
@@ -32,39 +33,33 @@ function Profile() {
     fetchAstronautData()
   }, [])
 
-if (!astronautData) { 
-  return (
-    <div>Loading... </div>
-  )
-}
+  if (!astronautData) {
+    return (
+      <div>Loading... </div>
+    )
+  }
+
+  if (astronautData.count === 0) {
+    return (
+      <div>Your search did not return any astronauts</div>
+    )
+  }
 
   return (
     <section className="section-profile">
-    <div className="profile-container">
-      <div className="card">
-        <div className="card-image">
-          <figure className="image">
-            <img src={astronautData?.results[0].profile_image} alt={astronautData?.results[0].name} />
-          </figure>
-<div className="card-content">
-       <h1 className="title is-4">{astronautData?.results[0].name}</h1>
-       <h2 className="subtitle is-5">Agency: {astronautData?.results[0].agency.name}</h2>
-        <p className="subtitle is-6">Age: {astronautData?.results[0].age}</p>
-        <p className="subtitle is-6">Nationality: {astronautData?.results[0].nationality}</p>
-</div>
-<div className="content">
-        <p>Bio: {astronautData?.results[0].bio}</p>
-</div>
-
+      {astronautData.results.map(item => {
+        return <div className="profile-card">
+          <div className="profile-card-text">
+            <p className="profile-card-text-name">{item.name}</p>
+            <p className="profile-card-text-agency">Agency: {item.agency.name}</p>
+            <p >Age: {item.age}</p>
+            <p >Nationality: {item.nationality}</p>
+            <p>Bio: {item.bio}</p>
+          </div>
+          <img src={item.profile_image} alt={item.name} />
         </div>
- 
-
-
-
-
-
-      </div>
-    </div>
+      })
+      }
     </section>
   )
 

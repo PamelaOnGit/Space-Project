@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 
 // ? Reassign any bulma variables
-$family-sans-serif: "Roboto", sans-serif;
+$family-sans-serif: "Roboto",
+sans-serif;
 
 // ! example on how to customize, skip to section "Add your own Bulma styles":
 // https://bulma.io/documentation/customize/with-sass-cli/
@@ -9,188 +10,228 @@ $family-sans-serif: "Roboto", sans-serif;
 // ? Import bulma
 @import "../../node_modules/bulma/bulma.sass";
 
-.leaflet-container { 
-  height: 100vh; 
-  width: 100vh; 
+.all {
+  background-color: black;
 }
 
+// navigations
 
+.navbar {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vh;
+  margin: 20px;
+}
 
-.section-people { 
-  width: 90vh; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+.navbar-item {
+  font-family: 'Space Mono', monospace;
+  color: white;
+  font-size: 20pt;
+}
+
+// home
+
+.section-home {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("src/components/resources/ISS.png");
   background-size: cover;
-  background-color:rgb(12, 10, 41)
 }
 
-.search-input { 
-  width: 300px; 
-  height: 60px; 
-  border-radius: 10px; 
-  font-size: 20px; 
-  background-color:rgb(41, 35, 120);
-  color: white; 
-}
 
-.search-button { 
-  width: 60px; 
-  height: 60px; 
-  border-radius: 50%; 
-  margin-left: 30px; 
-  background-color:rgb(41, 35, 120);
+.home-text h1 {
+  font-size: 60px;
+  font-family: 'Space Mono', monospace;
   color: white;
 }
 
-.people-container { 
-  display: flex; 
-  flex-direction: column; 
+.home-text .subtitle {
+  font-size: 20px;
+  margin-top: 40px;
 }
 
-.section-people h1, h2 { 
-  text-align: center; 
-  color: white; 
-  margin: 20px; 
-}
-
-
-.gallery-container { 
-  display: flex; 
-  flex-direction: row; 
-  flex-wrap: wrap; 
-  max-width: 800px; 
-  justify-content: space-around; 
-  margin: 40px; 
+.home-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  margin: 100px;
 
 }
 
-.astronaut-card { 
-  width: 20%; 
-  height: 300px; 
-  display: flex; 
-  flex-direction: column; 
-  // justify-content: space-between; 
-  border: none; 
-  border-radius: 5px; 
-  padding: 20px; 
-  margin: 20px; 
-  box-shadow: 5px 5px rgb(41, 35, 120);
-  text-align: center; 
-  // background-color: #24366b; 
-  background-image: url("src/components/resources/milky-way-2695569_960_720.jpeg");
+// tracker
 
+
+.section-tracker {
+  display: flex;
+  justify-content: flex-start;
 }
 
-.astronaut-name, .craft-name { 
-  color: white; 
-  background-color: rgb(15, 20, 22, 0.5); 
-  height: 50px; 
-  display: flex; 
-  align-items: center;
-  justify-content: center;
+.leaflet-container {
+  margin: 20px;
+  height: 100vh;
+  width: 100vh;
 }
 
 
+// people
 
-.astronaut-cartoon { 
-  height: 140px; 
-  margin: 10px; 
+.section-people {
+  box-sizing: border-box;
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  font-family: 'Space Mono', monospace;
+  height: 100vh;
+}
+
+.people-title {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.people-title h1,
+h2 {
+  font-size: 30px;
+}
+
+.people-title input,
+button {
+  margin-top: 30px;
+  font-family: 'Space Mono', monospace;
+}
+
+.search-input {
+  width: 300px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 20px;
+
+  background-color: white;
+}
+
+.search-button {
+  width: 100px;
+  height: 60px;
+  border-radius: 5px;
+  margin-left: 30px;
+  background-color: rgb(1, 0, 10);
+  color: white;
+  font-size: 20px;
+
+}
+
+.astronaut-list-container {
+  margin: 30px;
+}
+
+.astronaut-list-item {
+  margin-bottom: 30px;
+}
+
+.astronaut-name,
+.craft-name {
+  color: white;
+  font-size: 20px;
 }
 
 // profiles
 
-.section-profile { 
-  width: 90vw;
-  background-color:rgb(12, 10, 41);
-  display: flex; 
-  flex-direction: row; 
-  justify-content: center; 
-
-}
-
-.profile-container { 
-
-  max-width: 800px; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center; 
-  padding: 100px
-}
-
-.profile-container .card .card-image {
-  width: 400px; 
- }
-
-.profile-container .content { 
-  margin: 25px; 
-}
-
-.hero { 
-  background-color: black; 
-}
-
-.hero section { 
+.section-profile {
+ min-height: 100vh; 
+  width: 100vw;
+  background-color: black;
   display: flex;
   flex-direction: column; 
-  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
 }
 
-.hero section .title { 
-  color: white; 
-}
-
-.hero section p { 
-  // width: 600px; 
-  // background: rgba($color: #000000, $alpha: 0.5);  
-  // background: linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,0.4)); 
-  // background: -webkit-linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,0.4)); 
-  // background: -moz-linear-gradient(top, rgba(0,0,0,1), rgba(0,0,0,0.4));
-  background: linear-gradient(top, rgba(0,0,0,0.4), rgba(0,0,0,1)); 
-  background: -webkit-linear-gradient(top, rgba(0,0,0,0.4), rgba(0,0,0,1)); 
-  background: -moz-linear-gradient(top, rgba(0,0,0,0.4), rgba(0,0,0,1));
-  padding: 40px; 
-  }
-
-
-.image-text { 
-  color: white;
-  font-size: 18px; 
-  line-height: 40px; 
+.profile-card {
+  display: flex;
+  flex-direction: row; 
+  width: 100%; 
+  align-items: flex-start; 
+  width: 900px; 
+  border: 1px solid white; 
+  padding: 10px; 
+  border-radius: 10px; 
+  margin: 30px; 
   
+  // color: white; 
 }
+
+.profile-card-text { 
+  font-size: 20px; 
+  margin-top: 10px; 
+  color: white; 
+  width: 70%;  
+  margin-left: 30px; 
+}
+
+.profile-card-text-name { 
+  font-size: 30px;  
+  font-weight: bold; 
+}
+
+.profile-card img { 
+width: 30%;
+// height: 50%;
+}
+
+
+
+
+
+
 
 // Launches 
 
-.section-launch { 
-  display: flex; 
-  flex-direction: column; 
+.section-launch {
+  display: flex;
+  flex-direction: column;
 }
 
-.launch-card { 
-width: 90%; 
-display: flex; 
-flex-direction: row; 
-justify-content: space-around; 
-border: none; 
-border-radius: 5px; 
-padding: 20px; 
-margin: 20px; 
-// box-shadow: 5px 5px rgb(41, 35, 120);
-text-align: center; 
-// // background-color: #24366b; 
-// background-image: url("src/components/resources/milky-way-2695569_960_720.jpeg");
+
+
+
+// launch info
+
+
+.section-launch-info {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex: 1 1;
+  box-sizing: border-box;
 }
 
-.launch-card img { 
-  width: 30%; 
+
+.launch-info-card {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Space Mono', monospace;
+  color: white;
+  // margin: 30px; 
 }
 
-.launch-info .map-container { 
- width: 100px; 
+.launch-info-card .launch-info-name {
+  font-size: 18pt;
+  font-weight: bold;
+  //   margin: 30px;  
 }
 
-.launch-info { 
-  font-family:Arial, Helvetica, sans-serif
+.launch-info-card p {
+  font-size: 15pt;
+  // margin: 30px;  
+}
+
+.launch-info-card .launch-info-text,
+img {
+  margin: 30px;
+  width: 50%;
 }

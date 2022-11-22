@@ -15,7 +15,8 @@ import LaunchInfo from "./components/LaunchInfo"
 
 
 function App() {
-  return <Router>
+  return <div className="all">
+  <Router>
     <Navbar />
 <main>
   <Routes>
@@ -29,6 +30,7 @@ function App() {
   </Routes>
 </main>
   </Router>
+  </div>
 }
 
 export default App
