@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 
-const people_url = "http://api.open-notify.org/astros.json"
+const people_url = "https://cryptic-everglades-76066.herokuapp.com/http://api.open-notify.org/astros.json"
 
 type IAstronaut = {
   name: string,

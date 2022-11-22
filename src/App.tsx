@@ -7,9 +7,8 @@ import Home from "./components/Home"
 import Tracker from "./components/Tracker"
 import People from "./components/People"
 import Profile from "./components/Profile"
-import Launches from "./components/launches"
+import Launches from "./components/Launches"
 import LaunchInfo from "./components/LaunchInfo"
-
 
 
 

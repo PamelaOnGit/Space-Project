@@ -2,7 +2,7 @@ import React from 'react'
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import L from "leaflet"
 
-const tracker_url_and_key = "http://api.open-notify.org/iss-now.json"
+const tracker_url_and_key = "https://cryptic-everglades-76066.herokuapp.com/http://api.open-notify.org/iss-now.json"
 
 const issMarker = L.icon({
   iconUrl: "src/components/resources/iss_logo.png", 

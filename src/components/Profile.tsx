@@ -54,7 +54,7 @@ function Profile() {
             <p className="profile-card-text-agency">Agency: {item.agency.name}</p>
             <p >Age: {item.age}</p>
             <p >Nationality: {item.nationality}</p>
-            <p>Bio: {item.bio}</p>
+            <p >Bio: {item.bio}</p>
           </div>
           <img src={item.profile_image} alt={item.name} />
         </div>
