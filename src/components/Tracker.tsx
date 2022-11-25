@@ -5,8 +5,8 @@ import L from "leaflet"
 const tracker_url_and_key = "https://cryptic-everglades-76066.herokuapp.com/http://api.open-notify.org/iss-now.json"
 
 const issMarker = L.icon({
-  iconUrl: "src/components/resources/iss_logo.png", 
-  shadowUrl: "src/components/resources/iss_logo.png",
+  iconUrl: "/iss_logo.png", 
+  shadowUrl: "/iss_logo.png",
   iconSize: [40,40],
   shadowSize: [40,40], 
   className: "iss-icon"

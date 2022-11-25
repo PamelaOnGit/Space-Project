@@ -6,8 +6,8 @@ import { Link } from "react-router-dom"
 
 
 const rocket_icon = L.icon({
-  iconUrl: "src/components/resources/rocket.png", 
-  shadowUrl: "src/components/resources/rocket.png",
+  iconUrl: "/rocket.png", 
+  shadowUrl: "/rocket.png",
   iconSize: [60,60],
   shadowSize: [60,60], 
   className: "rocket-icon"

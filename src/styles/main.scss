@@ -36,7 +36,7 @@ sans-serif;
 .section-home {
   height: 100vh;
   width: 100vw;
-  background-image: url("src/components/resources/ISS.png");
+  background-image: url("/ISS.png");
   background-size: cover;
 }
 
@@ -86,7 +86,7 @@ sans-serif;
   background-color: black;
   color: white;
   font-family: 'Space Mono', monospace;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .people-title {
@@ -205,7 +205,7 @@ width: 30%;
 .section-launch-info {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   flex: 1 1;
   box-sizing: border-box;
 }
@@ -235,3 +235,14 @@ img {
   margin: 30px;
   width: 50%;
 }
+
+.blink {
+  animation: blinker 1s step-start infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+

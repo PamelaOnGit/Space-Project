@@ -1,44 +1,51 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
  
-//   const image_url_and_key = "https://api.nasa.gov/planetary/apod?api_key=7V1IvmxoCHrRVo0jatLJZ84YiZCkaOrIC1BNGNsq&count=1"
-// append &count=5 to retrieve more images for slider
+const messageArray = ["?","w","o","n"," ","t","h","g","i","r"," ","e","c","a","p","s"," ","n","i"," ","s","'","o","h","W"]
+const subtitleArray = "Track the International Space Station, find out who's on board today and follow the latest launches.".split('').reverse() 
 
-// interface IImageData { 
-//   date: string, 
-//   explanation: string, 
-//   hdurl: string
-// }
 
-// type ImageArray = Array<IImageData> 
 
 function Home() { 
 
-  // const [ imageArray, setImageArray ] = React.useState<Array<IImageData> | null>(null)
-  // console.log(imageArray)
+  const [string, setString] = React.useState<string>("")
+  const [seconds, setSeconds] = React.useState(1); 
+  const [isActive, setIsActive] = React.useState(true)
+  console.log(seconds, isActive)
+  console.log(messageArray[messageArray.length - seconds])
+  console.log(string)
 
-  // React.useEffect(() => {
-  //   async function fetchImage() {
-  //     const resp = await fetch(image_url_and_key)
-  //     const data = await resp.json()
-  //     setImageArray(data)
-  //   }
-  //   fetchImage()
+  function toggle() { 
+    setIsActive(!isActive)
+  }
+  
+  function reset() { 
+    setSeconds(0)
+    setIsActive(false)
+  }
 
-  // }, []) 
+  React.useEffect(() => { 
+    let interval:any = null
+    // if (isActive) {
+      if (seconds <= messageArray.length) {
+      interval = setInterval(() => { 
+        setSeconds(seconds => seconds + 1)
+        setString(string => string + messageArray[messageArray.length - seconds] )
+      }, 300)
+    // } else if (!isActive && seconds !== 0) { 
+    } else {
+      clearInterval(interval)
+    }
+    return ()  => clearInterval(interval)
+      }, [isActive, seconds])
+ 
 
 
-
-// if (!imageArray) { 
-//   return (
-//     <div>Loading... </div>
-//   )
-// }
 
 return (
   <div className="section-home">
 <div className="home-text">
-    <h1>Who's in space right now?</h1>
+    <h1>{string}<span className="blink">_</span></h1>
     <h1 className="subtitle">Track the International Space Station, find out who's on board today and follow the latest launches.</h1>
 
 </div>
@@ -46,18 +53,6 @@ return (
 )
 
 
-
-  // return <div className="hero is-fullheight" >
-  //   <figure className="image is-600x600">
-  //        <img src={imageArray[0]?.hdurl} alt="" />
-  //        <section className="is-overlay image-text">
-  //          <p className="title">Humans in Space</p>
-  //   <p>Date: {imageArray[0].date} <br/> {imageArray[0].explanation}</p>
-  //        </section>
-
-  //   </figure>
- 
-  // </div>
 }
 
 
